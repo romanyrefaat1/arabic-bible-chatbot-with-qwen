@@ -63,8 +63,8 @@ export function useChat(): UseChatReturn {
     const recentMessages = messages.slice(-4);
     let verseContext = '';
     try {
-      const getEmbedding = (await import('@/lib/send-message/getVector')).default;
-      const findSimilarVerses = (await import('@/lib/send-message/findSimilarVerses')).default;
+      const getEmbedding = (await import('@/actions/getVector')).default;
+      const findSimilarVerses = (await import('@/actions/findSimilarVerses')).default;
       const embedding = getEmbedding(message);
       const similarVerses = await findSimilarVerses(embedding);
       if (similarVerses?.length) {

@@ -1,6 +1,8 @@
 "use client"
 import { useState, useCallback } from 'react';
 import { useVerses, useParseVerses } from '../contexts/verses-contexts';
+import getEmbedding from '@/actions/getVector';
+import findSimilarVerses from '@/actions/findSimilarVerses';
 
 export type Message = {
   id: number;
@@ -23,7 +25,7 @@ export function useChatRemoteWithVerses() {
   const [error, setError] = useState<string | null>(null);
   
   // Verses context integration
-  const { clearMessageVerses } = useVerses();
+  const { clearMessageVerses, setMessageVerses } = useVerses();
   const { parseVersesFromText } = useParseVerses();
 
   const parseSSEChunk = (chunk: string) => {
@@ -56,6 +58,10 @@ export function useChatRemoteWithVerses() {
     setIsLoading(true);
     setError(null);
     setLoadingState('building_context');
+
+    const embedding = getEmbedding(newMessage);
+    const similarVerses = await findSimilarVerses(embedding);
+    // const similarVerses = [];
 
     const userMessage: Message = {
       id: Date.now(),
@@ -110,6 +116,10 @@ export function useChatRemoteWithVerses() {
     - Current Date: ${new Date().toLocaleDateString()}
     - Current Time: ${new Date().toLocaleTimeString()}
   </date>
+
+  <verses>
+    ${similarVerses.map((verse) => `<verse>${JSON.stringify(verse)}</verse>`).join('')}
+  </verses>
 
   <examples>
     <ex>
