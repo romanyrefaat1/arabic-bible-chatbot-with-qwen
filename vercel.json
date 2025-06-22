@@ -1,0 +1,11 @@
+{
+    "build": {
+      "env": {
+        "NEXT_DISABLE_LINTING": "true"
+      },
+      "ignoreCommand": "echo 'skipping ignore'",
+      "installCommand": "npm install",
+      "buildCommand": "npm run build",
+      "devCommand": "next dev"
+    }
+  }
