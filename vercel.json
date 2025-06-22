@@ -1,11 +1,10 @@
 {
-    "build": {
-      "env": {
-        "NEXT_DISABLE_LINTING": "true"
-      }
-    },
-    "buildCommand": "npm run build",
-    "devCommand": "next dev",
-    "installCommand": "npm install",
-  }
-  
+  "build": {
+    "env": {
+      "NEXT_DISABLE_LINTING": "true"
+    }
+  },
+  "buildCommand": "npm run build",
+  "devCommand": "next dev",
+  "installCommand": "npm install"
+}
