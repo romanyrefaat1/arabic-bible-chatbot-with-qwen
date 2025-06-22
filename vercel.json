@@ -1,11 +1,12 @@
 {
-  "build": {
-    "env": {
-      "NEXT_DISABLE_LINTING": "true"
-    }
-  },
-  "buildCommand": "npm run build",
-  "devCommand": "next dev",
-  "installCommand": "npm install",
-  "ignoreCommand": "echo 'skipping ignore'"
-}
+    "build": {
+      "env": {
+        "NEXT_DISABLE_LINTING": "true"
+      }
+    },
+    "buildCommand": "npm run build",
+    "devCommand": "next dev",
+    "installCommand": "npm install",
+    "ignoreCommand": "echo 'skipping ignore'"
+  }
+  
