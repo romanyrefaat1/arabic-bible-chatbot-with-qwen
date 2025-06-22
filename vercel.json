@@ -7,6 +7,5 @@
     "buildCommand": "npm run build",
     "devCommand": "next dev",
     "installCommand": "npm install",
-    "ignoreCommand": "echo 'skipping ignore'"
   }
   
